@@ -12,7 +12,6 @@ export class UserRoom {
 
   private initListner() {
     this.firstPlayer.on('message', (message: string) => {
-      console.log('new message');
       this.secondPlayer.send(message);
     });
 

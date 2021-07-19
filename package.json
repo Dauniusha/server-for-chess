@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start-socket": "ts-node ./chess-server/src/test.ts",
     "start": "ts-node ./chess-server/src/server.ts",
-    "watch": "nodemon",
-    "build": "webpack"
+    "watch": "nodemon"
   },
   "repository": {
     "type": "git",
