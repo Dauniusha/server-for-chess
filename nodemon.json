@@ -1,0 +1,7 @@
+{
+  "verbose": false,
+  "ignore": ["node_modules"],
+  "watch": ["chess-server"],
+  "exec": "npx ts-node ./chess-server/index.ts",
+  "ext": "ts, js"
+}
