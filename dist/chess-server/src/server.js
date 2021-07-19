@@ -32,10 +32,9 @@ webSocketServer.on('connection', function (socket) {
     }
     extSocket.send('loading');
 });
-server.listen(3000, function () { console.log('Server started!'); });
-/* class Server {
-  constructor() {
-    
-  }
-} */ 
+server.listen(process.env.PORT || 3000, function () {
+    if (server) {
+        console.log("Server started on port " + server.address().port);
+    }
+});
 //# sourceMappingURL=server.js.map
