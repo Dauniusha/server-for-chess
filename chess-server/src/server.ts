@@ -24,12 +24,12 @@ webSocketServer.on('connection', (socket: WebSocket) => {
   users.push(extSocket);
   for (const user of users) {
     if (!user.isHavePair && user !== extSocket) {
-      extSocket.send('connected');
-      user.send('connected');
       const firstPlayerColor = getRandomColor();
       const secondPlayerColor = firstPlayerColor === 'white' ? 'black' : 'white';
       extSocket.send(firstPlayerColor);
       user.send(secondPlayerColor);
+      extSocket.send('connected');
+      user.send('connected');
       new UserRoom(extSocket, user);
       return;
     }
