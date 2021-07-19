@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./chess-server/src/server.ts",
+    "start": "node ./dist/server/server.js",
     "watch": "nodemon"
   },
   "repository": {
@@ -16,7 +16,6 @@
   "dependencies": {
     "git": "^0.1.5",
     "net": "^1.0.2",
-    "node-polyfill-webpack-plugin": "^1.1.4",
     "ts-node": "^10.1.0",
     "ws": "^7.5.3"
   },
