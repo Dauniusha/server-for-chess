@@ -20,7 +20,6 @@ export class UserRoom {
       this.firstPlayer.send(message);
     });
 
-
     this.firstPlayer.on('close', () => {
       this.secondPlayer.send('disconnected');
     });
