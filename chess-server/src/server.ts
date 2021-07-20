@@ -41,7 +41,30 @@ webSocketServer.on('connection', (socket: WebSocket) => {
       return user !== extSocket;
     });
   });
+
+  /* extSocket.on('pong', () => { // TODO: 2 part 'ping', 1 part 'pong'
+    console.log('pong');
+    extSocket.isAlive = true;
+  }); */
 });
+
+/* function noop() {}
+
+const interval = setInterval(() => {
+users.forEach((user) =>{
+    if (!user.isAlive) {
+      return user.terminate();
+    }
+
+    user.isAlive = false;
+    console.log('ping');
+    user.ping(noop);
+  });
+}, 10000);
+
+webSocketServer.on('close', () => {
+  clearInterval(interval);
+}); */
 
 server.listen(process.env.PORT || 3000, () => {
   if (server) {
