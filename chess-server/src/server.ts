@@ -9,7 +9,7 @@ export interface ExtWebSocket extends WebSocket {
   isAlive: boolean;
 }
 
-const users: ExtWebSocket[] = [];
+let users: ExtWebSocket[] = [];
 
 const app = express();
 
@@ -18,6 +18,7 @@ const server = http.createServer(app);
 const webSocketServer = new WebSocket.Server({ server });
 
 webSocketServer.on('connection', (socket: WebSocket) => {
+  console.log(users);
   const extSocket = <ExtWebSocket> socket;
   extSocket.isAlive = true;
   extSocket.isHavePair = false;
@@ -36,8 +37,14 @@ webSocketServer.on('connection', (socket: WebSocket) => {
   }
   extSocket.send('loading');
 
+  extSocket.on('close', () => {
+    users = users.filter((user) => {
+      return user !== extSocket;
+    });
+  });
 });
 
-server.listen(process.env.PORT || 3000, () => { if (server) {
+server.listen(process.env.PORT || 3000, () => {
+  if (server) {
   console.log(`Server started on port ${(<WebSocket.AddressInfo> server.address()).port}`);
-} });
+}});
