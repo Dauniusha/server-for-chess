@@ -31,6 +31,11 @@ webSocketServer.on('connection', function (socket) {
         }
     }
     extSocket.send('loading');
+    extSocket.on('close', function () {
+        users = users.filter(function (user) {
+            return user !== extSocket;
+        });
+    });
 });
 server.listen(process.env.PORT || 3000, function () {
     if (server) {

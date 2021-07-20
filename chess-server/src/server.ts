@@ -18,7 +18,6 @@ const server = http.createServer(app);
 const webSocketServer = new WebSocket.Server({ server });
 
 webSocketServer.on('connection', (socket: WebSocket) => {
-  console.log(users);
   const extSocket = <ExtWebSocket> socket;
   extSocket.isAlive = true;
   extSocket.isHavePair = false;
